@@ -40,6 +40,28 @@ public class Product {
         this.price = price;
     }
 
+    public boolean matches(Product product, String search) {
+
+        if (product instanceof Book) {                  // если в параметре product лежит объект класса Book
+            Book book = (Book) product;                 // положем его в переменную типа Book чтобы пользоваться методами класса Book
+            if (book.getAuthor().contains(search)) {    // проверим есть ли поисковое слово в данных об авторе
+                return true;
+            }
+            return false;
+        }
+
+        if (product instanceof Smartphone) {
+            Smartphone smartphone = (Smartphone) product;
+            if (smartphone.getManufacturer().contains(search)) {
+                return true;
+            }
+
+            return false;
+        }
+        return false;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

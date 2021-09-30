@@ -16,27 +16,29 @@ class ProductManagerTest {
     Book bookWe = new Book(3, "Мы", 155, "Замятин");
     Smartphone smartphoneSamsung = new Smartphone(4, "Самсунг", 20400, "Корея");
 
+
     @Test
-    void shouldAdd() {
+    void shouldSearchByAuthor() {
         manager.add(bookMaugli);
         manager.add(smartphoneApple);
         manager.add(bookWe);
         manager.add(smartphoneSamsung);
+        manager.searchBy("Замятин");
 
-        Product[] expected = new Product[]{bookMaugli, smartphoneApple, bookWe, smartphoneSamsung};
-        Product[] actual = repo.findAll();
+        Product[] expected = new Product[]{bookWe};
+        Product[] actual = manager.getResult();
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void shouldSearchBy() {
+    void shouldSearchByManufacturer() {
         manager.add(bookMaugli);
         manager.add(smartphoneApple);
         manager.add(bookWe);
         manager.add(smartphoneSamsung);
-        manager.searchBy("Киплинг");
+        manager.searchBy("Корея");
 
-        Product[] expected = new Product[]{bookMaugli};
+        Product[] expected = new Product[]{smartphoneSamsung};
         Product[] actual = manager.getResult();
         assertArrayEquals(expected, actual);
     }

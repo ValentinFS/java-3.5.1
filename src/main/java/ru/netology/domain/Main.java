@@ -1,8 +1,8 @@
 //package ru.netology.domain;
-
-import ru.netology.repository.ProductManager;
-import ru.netology.repository.ProductRepository;
-
+//
+//import ru.netology.repository.ProductManager;
+//import ru.netology.repository.ProductRepository;
+//
 //public class Main {
 //
 //    public static void main(String[] args) {
@@ -19,7 +19,7 @@ import ru.netology.repository.ProductRepository;
 //        manager.add(product2);
 //        manager.add(product3);
 //        manager.add(product4);
-//        manager.searchBy("Мы");
+//        manager.searchBy("Замятин");
 //
 //
 //    }
