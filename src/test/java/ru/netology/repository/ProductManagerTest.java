@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+import ru.netology.manager.ProductManager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,17 +31,17 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-    @Test
-    void shouldSearchByManufacturer() {
-        manager.add(bookMaugli);
-        manager.add(smartphoneApple);
-        manager.add(bookWe);
-        manager.add(smartphoneSamsung);
-        manager.searchBy("Корея");
-
-        Product[] expected = new Product[]{smartphoneSamsung};
-        Product[] actual = manager.getResult();
-        assertArrayEquals(expected, actual);
-    }
+//    @Test
+//    void shouldSearchByManufacturer() {
+//        manager.add(bookMaugli);
+//        manager.add(smartphoneApple);
+//        manager.add(bookWe);
+//        manager.add(smartphoneSamsung);
+//        manager.searchBy("Корея");
+//
+//        Product[] expected = new Product[]{smartphoneSamsung};
+//        Product[] actual = manager.getResult();
+//        assertArrayEquals(expected, actual);
+//    }
 
 }
