@@ -39,60 +39,48 @@ class ProductManagerTest {
     @Test
     void shouldSearchByAuthor() {
 
-        manager.searchBy("Киплинг");
-
         Product[] expected = new Product[]{bookMaugli};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy("Киплинг");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSearchByName() {
 
-        manager.searchBy("Мы");
-
         Product[] expected = new Product[]{bookWe};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy("Мы");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSearchByModel() {
 
-        manager.searchBy("Apple");
-
         Product[] expected = new Product[]{smartphoneApple};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy("Apple");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSearchByManufacturer() {
 
-        manager.searchBy("Корея");
-
         Product[] expected = new Product[]{smartphoneSamsung};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy("Корея");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSearchByNothing() {
 
-        manager.searchBy(" ");
-
         Product[] expected = new Product[]{};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy(" ");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldSearchBySomeProducts() {
 
-        manager.searchBy("Самсунг");
-
         Product[] expected = new Product[]{smartphoneSamsung, smartphoneSamsung1};
-        Product[] actual = manager.getResult();
+        Product[] actual = manager.searchBy("Самсунг");
         assertArrayEquals(expected, actual);
     }
 
