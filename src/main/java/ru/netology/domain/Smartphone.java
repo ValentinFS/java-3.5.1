@@ -23,6 +23,18 @@ public class Smartphone extends Product {
     }
 
     @Override
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        }
+        if (manufacturer.contains(search)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -43,8 +55,4 @@ public class Smartphone extends Product {
                 '}';
     }
 
-    @Override
-    public boolean matches(String search) {
-        return super.matches(search);
-    }
 }

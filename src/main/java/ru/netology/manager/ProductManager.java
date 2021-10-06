@@ -6,7 +6,6 @@ import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-    Product[] result;
     private ProductRepository repository;
 
     public ProductManager(ProductRepository repository) {
@@ -20,7 +19,7 @@ public class ProductManager {
 
 
     public Product[] searchBy(String text) {
-        result = new Product[0];
+        Product[] result = new Product[0];
         for (Product product : repository.findAll()) {
             if (product.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
@@ -31,11 +30,6 @@ public class ProductManager {
         }
         return result;
     }
-
-public Product[] getResult(){
-        return result;
-}
-
 
 
 }
