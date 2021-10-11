@@ -28,33 +28,16 @@ class SmartphoneTest {
 
     @Test
     void shouldMatchesSmartphoneByName() {
-        Product[] expected = new Product[]{smartphoneApple};
-        Product[] actual = manager.searchBy("App");
-        assertArrayEquals(expected, actual);
-
+        assertTrue(smartphoneApple.matches("Apple"));
     }
 
     @Test
     void shouldMatchesSmartphoneByManufacturer() {
-        Product[] expected = new Product[]{smartphoneSamsung1};
-        Product[] actual = manager.searchBy("Вьетнам");
-        assertArrayEquals(expected, actual);
-
+        assertTrue(smartphoneSamsung.matches("Корея"));
     }
 
     @Test
     void shouldMatchesSmartphoneByNothing() {
-        Product[] expected = new Product[]{};
-        Product[] actual = manager.searchBy(" ");
-        assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    void shouldMatchesSmartphoneBySomeProducts() {
-        Product[] expected = new Product[]{smartphoneSamsung, smartphoneSamsung1};
-        Product[] actual = manager.searchBy("Самсунг");
-        assertArrayEquals(expected, actual);
-
+        assertFalse(smartphoneSamsung.matches(" "));
     }
 }

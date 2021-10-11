@@ -28,36 +28,20 @@ class BookTest {
         manager.add(bookWe1);
     }
 
+
     @Test
     void shouldMatchesBookByName() {
-        Product[] expected = new Product[]{bookMaugli};
-        Product[] actual = manager.searchBy("Маугли");
-        assertArrayEquals(expected, actual);
-
+        assertTrue(bookMaugli.matches("Маугли"));
     }
 
     @Test
     void shouldMatchesBookByAuthor() {
-        Product[] expected = new Product[]{bookWe, bookWe1};
-        Product[] actual = manager.searchBy("Замятин");
-        assertArrayEquals(expected, actual);
-
+        assertTrue(bookWe.matches("Замятин"));
     }
 
     @Test
     void shouldMatchesBookByNothing() {
-        Product[] expected = new Product[]{};
-        Product[] actual = manager.searchBy(" ");
-        assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    void shouldMatchesBookBySomeProducts() {
-        Product[] expected = new Product[]{bookWe, bookWe1};
-        Product[] actual = manager.searchBy("Мы");
-        assertArrayEquals(expected, actual);
-
+        assertFalse(bookWe.matches(" "));
     }
 
 
